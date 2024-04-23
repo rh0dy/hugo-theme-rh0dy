@@ -1,7 +1,3 @@
-console.log('TODO.');
-
-//
-
 class TextScramble {
   constructor(el) {
     this.el = el
