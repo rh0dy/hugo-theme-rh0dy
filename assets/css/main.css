@@ -25,6 +25,10 @@ li a:hover {
   background-color: #cbc85d11; 
 }
 
+.image:hover {
+  background-color: unset;
+}
+
 img {
   padding: 1rem 0;
 }
