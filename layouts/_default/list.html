@@ -1,8 +1,15 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
-  {{ .Content }}
+  <div class="home">
+    <h2>{{ .Title }}</h2>
+  </div>
   {{ range .Pages }}
-    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-    {{ .Summary }}
+    <div class="home">
+      <a href="{{ .RelPermalink }}"><h2>{{ .LinkTitle }}</h2></a>
+      {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+      {{ $dateHuman := .Date | time.Format ":date_long" }}
+      <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+      {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+      <p class="summary">{{ .Summary }}...</p>
+    </div>
   {{ end }}
 {{ end }}
